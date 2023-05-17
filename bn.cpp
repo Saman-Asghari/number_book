@@ -1,6 +1,7 @@
 #include<iostream>
 #include<map>
 #include<iterator>
+#include<vector>
 using namespace std;
 struct information{
 	string type[2];
@@ -86,9 +87,28 @@ void edit(string test, map<string, information>& x) {
 	}
 
 }
-
+void f_add(string s,vector<pair<string,information>>&y,map<string, information>x){
+    map<string, information>::iterator it;
+    string m;
+    information temp;
+    cout<<"enter the name so you want to add to favorite list:";
+    cin>>m;
+    it=x.find(m);
+    temp=it->second;
+    y.push_back(pair<string,information>(m,temp));
+}
+void f_del(string test,vector<pair<string,information>>&x){
+    vector<pair<string,information>>::iterator it;
+    for(it=x.begin();it!=x.end();it++){
+        if((*it).first==test){
+            break;
+        }
+    }
+    x.erase(it);
+}
 int main() {
 	map<string, information> lists;
+    vector<pair<string,information>> favorite_lists;
 	add(lists);
 	add(lists);
 	edit("saman", lists);

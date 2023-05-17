@@ -25,12 +25,24 @@ void add(map<string,information>& x) {
 }
 void del(string test,map<string, information>& x) {
 	int index=0;
-	for (auto i = x.begin(); i!= x.end(); i++) {
-		if (i->first == test)
+    map<string, information>::iterator it;
+	for (it = x.begin(); it!= x.end(); it++) {
+		if (it->first == test)
 			break;
 		index++;
 	}
 	x.erase(test);
+}
+void edit_name(string test,map<string, information>& x){
+    map<string, information>::iterator it;
+    it=x.find(test);
+    string m;
+    cout<<"now enter the second name\n";
+    cin>>m;
+    information value = it->second;
+    x.erase(it);
+    x[m] = value;
+    
 }
 void edit(string test, map<string, information>& x) {
 	int index;
@@ -80,4 +92,5 @@ int main() {
 	add(lists);
 	add(lists);
 	edit("saman", lists);
+    edit_name("saman",lists);
 }

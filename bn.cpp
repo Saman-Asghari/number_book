@@ -106,6 +106,31 @@ void f_del(string test,vector<pair<string,information>>&x){
     }
     x.erase(it);
 }
+void edit_favorite_list(vector<pair<string,information>>&x){
+    string s1,s2;
+    int counter1=0,counter2=0;
+    vector<pair<string,information>> t1,t2;
+    cout<<"enter the two names you want to change order:";
+    cin>>s1>>s2;
+    vector<pair<string,information>>::iterator it1,it2;
+     for(it1=x.begin();it1!=x.end();it1++){
+        if((*it1).first==s1){
+            break;
+        }
+        counter1++;
+    }
+    for(it2=x.begin();it2!=x.end();it2++){
+        if((*it2).first==s2){
+            break;
+        }
+        counter2++;
+    }
+    t1.push_back(*it1);
+    t2.push_back(*it2);
+    x[counter1]=t2[0];
+    x[counter2]=t1[0];
+    
+}
 int main() {
 	map<string, information> lists;
     vector<pair<string,information>> favorite_lists;

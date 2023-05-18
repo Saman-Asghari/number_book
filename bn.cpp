@@ -138,6 +138,16 @@ void show_list(map<string, information>&x){
         cout<<(*it).first<<"  "<<endl;
     }
 }
+void show_number_of_person(map<string, information>&x){
+    string name;
+    cout<<"Enter the name you want to see his/her numbers:";
+    cin>>name;
+    map<string, information>::iterator it;
+    it=x.find(name);
+    cout<<"this user numbers are: "<<(*it).second.type[0]<<"   "<<(*it).second.number[0]<<endl;
+    cout<<(*it).second.type[1]<<"   "<<(*it).second.number[1]<<endl;
+
+}
 int main() {
 	map<string, information> lists;
     vector<pair<string,information>> favorite_lists;

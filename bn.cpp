@@ -131,6 +131,13 @@ void edit_favorite_list(vector<pair<string,information>>&x){
     x[counter2]=t1[0];
     
 }
+void show_list(map<string, information>&x){
+    cout << "CONTACT LIST:" << endl;
+    map<string, information>::iterator it;
+    for(it=x.begin();it!=x.end();it++){
+        cout<<(*it).first<<"  "<<endl;
+    }
+}
 int main() {
 	map<string, information> lists;
     vector<pair<string,information>> favorite_lists;

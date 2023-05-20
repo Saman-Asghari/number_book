@@ -2,6 +2,7 @@
 #include<map>
 #include<iterator>
 #include<vector>
+#include<string>
 using namespace std;
 struct information {
     string type[2];
@@ -153,6 +154,18 @@ void show_favorite_list(vector<pair<string, information>>& x) {
     cout << "FAVORITE LIST:"<<endl;
     for (it = x.begin(); it != x.end(); it++) {
         cout << (*it).first << endl;
+    }
+}
+void find_list(map<string, information>& x) {
+    string wanted;
+    cout<<"enter the string if u want to search:";
+    cin >> wanted;
+    cout<<endl;
+    map<string, information>::iterator it;
+    for (it = x.begin(); it != x.end(); it++) {
+        if ((*it).first.find(wanted)!= string::npos) {
+            cout << (*it).first << endl;
+        }
     }
 }
 int main() {
